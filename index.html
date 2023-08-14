@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="input">
+		<div class="grid-item" onclick="n7()" >7</div>
+		<div class="grid-item" onclick="n8()">8</div>
+		<div class="grid-item" onclick="n9()">9</div> 
+		<div class="grid-item"onclick="nc()">C</div>
+		<div class="grid-item" onclick="n4()">4</div>
+		<div class="grid-item" onclick="n5()">5</div>
+		<div class="grid-item" onclick="n6()">6</div>
+		<div class="grid-item" onclick="ndash()">-</div>  
+		<div class="grid-item" onclick="n1()">1</div>
+		<div class="grid-item" onclick="n2()">2</div>
+  		<div class="grid-item" onclick="n3()">3</div>
+  		<div class="grid-item" onclick="nplus()">+</div>
+  		<div class="grid-item" onclick="nantilog()">Anti</div>
+		<div class="grid-item" onclick="n0()">0</div>
+  		<div class="grid-item" onclick="ndot()">.</div>
+  		<div class="grid-item" onclick="nequal()">=</div> 
+	</div>
+	<div class="calculation">
+		<table id="calculator">
+                <tr>
+                    <th>Number</th>
+                    <th>Log Value</th>
+                </tr>
+                <tr>
+                    <td class="num-style" id="number">0</td>
+                    <td class="num-style" id="log">0</td>
+                </tr>
+            </table>
+	</div>
+</body>
+<script src="app.js"></script>
+</html>
