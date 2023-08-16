@@ -2,6 +2,7 @@ let current_number = ""
 let current_log = ""
 let sum = 0
 all_log = []
+all_ans = []
 function update_the_current_log (num) {
 	let curr_number = document.getElementById("number");
 	let curr_log = document.getElementById("log"); 
@@ -9,12 +10,18 @@ function update_the_current_log (num) {
 	curr_number.innerHTML = current_number;
 	let logBase10 = Math.log10(current_number);
 	let roundedLog = logBase10.toFixed(4);
-	curr_log.innerHTML = roundedLog;
+
+	let previousLog = curr_log.innerHTML
+	if(previousLog.charAt(0) == "-"){
+		curr_log.innerHTML = "-"+roundedLog;
+	}else {
+		curr_log.innerHTML = roundedLog;
+	}
 }
 function add_the_numbers (argument) {
 	let curr_number = document.getElementById("number").removeAttribute('id');
 	let curr_log = document.getElementById("log"); 
-	let x = curr_log.innerHTML
+	let x = Number(curr_log.innerHTML)
 	all_log.push(x)
 	console.log(x)
 	curr_log.removeAttribute('id')
@@ -26,17 +33,18 @@ function add_the_numbers (argument) {
 	cell2.id = 'log';
 	cell1.classList.add("num-style")
 	cell2.classList.add("num-style")
-	cell1.innerHTML = "+0"
+	cell1.innerHTML = "+"
 	cell2.innerHTML = "0"
 	current_number = ""
 	current_log = ""
+	sum = 0
 }
 function sub_the_numbers (argument) {
 	let curr_number = document.getElementById("number").removeAttribute('id');
 	let curr_log = document.getElementById("log"); 
-	let x = "-"+curr_log.innerHTML
+	let x = Number(curr_log.innerHTML)
 	all_log.push(x)
-	console.log(x)
+	console.log(curr_log.innerHTML)
 	curr_log.removeAttribute('id')
 	let table = document.getElementById('calculator')
 	let row = table.insertRow(-1)
@@ -46,38 +54,47 @@ function sub_the_numbers (argument) {
 	cell2.id = 'log';
 	cell1.classList.add("num-style")
 	cell2.classList.add("num-style")
-	cell1.innerHTML = "0"
-	cell2.innerHTML = "0"
+	cell1.innerHTML = "-"
+	cell2.innerHTML = "-"
 	current_number = ""
 	current_log = ""
+	sum = 0
 
 }
 function easy_part (argument) {
 	let curr_number = document.getElementById("number").removeAttribute('id');
 	let curr_log = document.getElementById("log"); 
-	let x = curr_log.innerHTML
+	let x = Number(curr_log.innerHTML)
 	all_log.push(x)
 	console.log(x)
 	curr_log.removeAttribute('id')
 	let table = document.getElementById('calculator')
-	let row = table.insertRow(-1)
-	let cell1 = row.insertCell("0")
-	let cell2 = row.insertCell("1")
-	cell1.id = 'number';
-	cell2.id = 'log';
+	let row1 = table.insertRow(-1)
+	let cell1 = row1.insertCell("0")
+	let cell2 = row1.insertCell("1")
+	let row2 = table.insertRow(-1)
+	let cell3 = row2.insertCell("0")
+	let cell4 = row2.insertCell("1")
+	cell3.id = 'number';
+	cell4.id = 'log';
 	cell1.classList.add("num-style")
 	cell2.classList.add("num-style")
+	cell3.classList.add("num-style")
+	cell4.classList.add("num-style")
 	current_number = ""
 	current_log = ""
 	console.log(all_log)
 	for(let i = 0; i < all_log.length; i++){
 		sum += Number(all_log[i]); 
-	} 
+	}
+	all_log.length = 0
 	let roundedLog = sum.toFixed(4);
 	console.log(sum)
 	cell1.innerHTML = "Ans"
 	cell2.innerHTML = sum
+	sum = 0
 }
+
 function n1 () {
 	let num = "1"
 	update_the_current_log(num); 
